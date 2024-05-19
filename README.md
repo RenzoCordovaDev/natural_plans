@@ -1,5 +1,7 @@
 # NaturalPlansWeb
 
+Web application developed with Angular version 17 for a plant nursery company in the Amazon in Peru
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
 ## Development server
