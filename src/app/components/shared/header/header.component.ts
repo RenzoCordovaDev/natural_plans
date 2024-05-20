@@ -1,18 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, HostListener  } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  public optionsList: any = [];
+  optionsList: any = [];
+  scrolled: boolean = false;
 
   ngOnInit(): void {
     this.onLoadOptionsList();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const offset = window.screenY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.scrolled = offset > 50;
   }
 
   onLoadOptionsList() {
